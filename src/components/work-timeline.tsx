@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AnimatePresence } from "framer-motion";
-import { ExperienceTimelineItem } from "./ruixen/experience-time-line-item";
+import { ExperienceTimelineItem } from "./muhaimin/experience-time-line-item";
 
 interface WorkTimelineProps {
   experiences: readonly WorkExperience[] | WorkExperience[];

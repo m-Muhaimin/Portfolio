@@ -7,6 +7,8 @@ import { usePostHog } from "posthog-js/react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 
+import { ThemeProvider } from "next-themes";
+
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
@@ -18,10 +20,12 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <PHProvider client={posthog}>
-      <SuspendedPostHogPageView />
-      {children}
-    </PHProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <PHProvider client={posthog}>
+        <SuspendedPostHogPageView />
+        {children}
+      </PHProvider>
+    </ThemeProvider>
   );
 }
 

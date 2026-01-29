@@ -16,6 +16,8 @@ interface NavbarProps {
   links?: { url: string; title: string }[];
 }
 
+import { ThemeToggle } from "./theme-toggle";
+
 export function HoverNavbar({ links = [] }: NavbarProps) {
 
   const navItems = [
@@ -64,7 +66,7 @@ export function HoverNavbar({ links = [] }: NavbarProps) {
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.3 }}
-        className="rounded-3xl border border-gray-200 bg-transparent shadow-xl backdrop-blur-3xl dark:border-gray-800 dark:bg-slate-900/80"
+        className="rounded-3xl border border-gray-200 bg-white/70 shadow-xl backdrop-blur-3xl dark:border-gray-800 dark:bg-slate-900/80"
       >
         <nav className="flex items-center space-x-1 px-2 py-1 md:space-x-2 md:py-2.5">
           {navItems.map((item) => (
@@ -84,6 +86,8 @@ export function HoverNavbar({ links = [] }: NavbarProps) {
               </a>
             </Button>
           ))}
+          <div className="h-6 w-px bg-gray-200 dark:bg-gray-800" />
+          <ThemeToggle />
         </nav>
       </motion.div>
     </div>

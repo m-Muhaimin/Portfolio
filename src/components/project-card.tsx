@@ -24,10 +24,12 @@ export function ProjectCard({ title, description, tags, link }: Props) {
               <a
                 href={link}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 hover:underline"
+                aria-label={`Visit project: ${title}`}
               >
                 {title}
-                <span className="size-1 rounded-full bg-green-500"></span>
+                <span className="size-1 rounded-full bg-green-500" aria-hidden="true"></span>
               </a>
             ) : (
               title

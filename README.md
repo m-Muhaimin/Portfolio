@@ -1,7 +1,7 @@
 
-# Ruixen Portfolio
+# Muhaimin.dev Portfolio
 
-This is the official personal portfolio project for Ruixen, built using **Next.js** and **Tailwind CSS**. It is optimized for performance, accessibility, and search engine visibility with the integration of **next-sitemap** for automatic sitemap and robots.txt generation.
+This is the official personal portfolio project for Muhaimin.dev, built using **Next.js** and **Tailwind CSS**. It is optimized for performance, accessibility, and search engine visibility with the integration of **next-sitemap** for automatic sitemap and robots.txt generation.
 
 ## Features
 
@@ -44,7 +44,7 @@ Create a `next-sitemap.config.js` file at the root of the project:
 ```js
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://ruixen.com",
+  siteUrl: "https://muhaimin.dev",
   generateRobotsTxt: true,
   changefreq: "monthly",
   priority: 0.8,
@@ -107,10 +107,10 @@ You can deploy this project on any platform that supports **Node.js**, such as:
 
 If you need help, have feedback, or want to suggest improvements, feel free to reach out:
 
-- **Email**: [support@ruixen.com](mailto:support@ruixen.com)
-- **Feedback**: [feedback@ruixen.com](mailto:feedback@ruixen.com)
+- **Email**: [support@muhaimin.dev](mailto:support@muhaimin.dev)
+- **Feedback**: [feedback@muhaimin.dev](mailto:feedback@muhaimin.dev)
 
-Maintained by the **Ruixen Team**.
+Maintained by the **Muhaimin.dev Team**.
 
 ---
 

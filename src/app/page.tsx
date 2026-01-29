@@ -50,7 +50,7 @@ const NameAnimation = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }} // Faster fade in/out
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
         >
           <div className="relative">
             <motion.div
@@ -76,7 +76,7 @@ const NameAnimation = () => {
                   transition={{ delay: 0.1 * index, duration: 0.5 }} // Faster animation with shorter delay
                   className="overflow-hidden"
                 >
-                  <HyperText className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-4xl font-bold text-transparent sm:text-6xl lg:text-9xl">
+                  <HyperText className="bg-gradient-to-r from-foreground via-foreground/70 to-foreground bg-clip-text text-4xl font-bold text-transparent sm:text-6xl lg:text-9xl">
                     {word}
                   </HyperText>
                 </motion.div>
@@ -90,7 +90,7 @@ const NameAnimation = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }} // Faster appearance of about text
             >
-              <HyperText className="text-sm tracking-wide text-gray-600">
+              <HyperText className="text-sm tracking-wide text-muted-foreground">
                 {RESUME_DATA.about}
               </HyperText>
             </motion.div>
@@ -178,7 +178,7 @@ export default function Page() {
             <HoverNavbar links={commandLinks} />
             <motion.section
               id="top"
-              className="mx-auto w-full max-w-4xl space-y-8 bg-white print:space-y-6"
+              className="mx-auto w-full max-w-4xl space-y-8 bg-background print:space-y-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -190,15 +190,17 @@ export default function Page() {
                 >
                   <Avatar className="size-28">
                     <AvatarImage
-                      alt={RESUME_DATA.name}
+                      alt={`${RESUME_DATA.name} profile picture`}
                       src={RESUME_DATA.avatarUrl}
                     />
                     <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
                   </Avatar>
                 </motion.div>
-                <div className="flex-1 space-y-1.5">
-                  <h1 className="text-2xl font-medium">{RESUME_DATA.name}</h1>
-                  <p className="max-w-md text-sm text-muted-foreground">
+                <div className="flex-1 space-y-1.5" role="banner">
+                  <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    {RESUME_DATA.name}
+                  </h1>
+                  <p className="max-w-md text-lg font-medium text-muted-foreground">
                     {RESUME_DATA.about}
                   </p>
                   <div className="flex gap-x-1 pt-1 text-sm text-muted-foreground print:hidden">
@@ -208,6 +210,7 @@ export default function Page() {
                         variant="outline"
                         size="icon"
                         asChild
+                        aria-label="Send email"
                       >
                         <a href={`mailto:${RESUME_DATA.contact.email}`}>
                           <MailIcon className="size-4" />
@@ -221,6 +224,7 @@ export default function Page() {
                         variant="outline"
                         size="icon"
                         asChild
+                        aria-label={`Link to ${social.name}`}
                       >
                         <a
                           href={social.url}
@@ -235,6 +239,7 @@ export default function Page() {
                       variant="outline"
                       className="flex h-8 items-center gap-2"
                       asChild
+                      aria-label="Download CV"
                     >
                       <a
                         href={RESUME_DATA.resumeUrl}
@@ -247,29 +252,24 @@ export default function Page() {
                       </a>
                     </Button>
                   </div>
-                  <div className="hidden flex-col gap-x-1 text-sm text-muted-foreground print:flex">
-                    {RESUME_DATA.contact.email ? (
-                      <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                        <span className="underline">
-                          {RESUME_DATA.contact.email}
-                        </span>
-                      </a>
-                    ) : null}
-                  </div>
                 </div>
               </div>
 
               <Section id="about">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-medium">About</h2>
+                  <h2 className="text-xl font-semibold tracking-tight">
+                    Summary
+                  </h2>
                 </div>
-                <p className="text-pretty text-sm text-muted-foreground">
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                   {RESUME_DATA.summary}
                 </p>
               </Section>
 
               <Section id="work" className="scroll-mt-16">
-                <h2 className="text-xl font-medium">Work Experience</h2>
+                <h2 className="text-xl font-semibold tracking-tight">
+                  Work Experience
+                </h2>
                 <WorkTimeline experiences={RESUME_DATA.work} />
               </Section>
 

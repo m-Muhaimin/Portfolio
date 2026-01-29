@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://ruixen.com", // your live portfolio domain
+  siteUrl: "https://muhaimin.dev", // your live portfolio domain
   generateRobotsTxt: true,
   changefreq: "monthly", // portfolios don't change daily
   priority: 0.8,

@@ -47,7 +47,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ name, skills, icon, isAct
     onClick={onClick}
     className={cn(
       "flex flex-col items-center gap-1 p-3 cursor-pointer",
-      isActive ? "bg-primary text-white rounded-xl shadow-md" : "bg-muted hover:bg-muted/80"
+      isActive ? "bg-primary text-primary-foreground rounded-xl shadow-md" : "bg-muted hover:bg-muted/80"
     )}
   >
     <div className="flex items-center gap-2">{icon && icon}</div>
@@ -55,7 +55,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ name, skills, icon, isAct
     <span
       className={cn(
         "rounded-full text-xs w-5 h-5 flex items-center justify-center",
-        isActive ? "bg-white text-primary" : "bg-background text-muted-foreground"
+        isActive ? "bg-primary-foreground text-primary" : "bg-background text-muted-foreground"
       )}
     >
       {count}
@@ -113,7 +113,7 @@ export const InteractiveSkills: React.FC<InteractiveSkillsProps> = ({ skills }) 
               >
                 <Badge
                   variant="secondary"
-                  className="py-1 px-2 text-sm cursor-pointer rounded-xl bg-gray-100 flex items-center gap-2"
+                  className="py-1 px-2 text-sm cursor-pointer rounded-xl bg-muted flex items-center gap-2"
                 >
                   {getSkillIcon(skill)}
                   {skill}
