@@ -1,7 +1,7 @@
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Mahmud Al Muhaimin",
+  name: "M Muhaimin",
   initials: "M",
   location: "Bengaluru, India",
   about: "AI Software Engineer",
